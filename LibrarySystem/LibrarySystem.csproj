@@ -42,11 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+
     <Compile Include="Book.cs" />
-=======
+
     <Compile Include="App.cs" />
->>>>>>> dba9cc0d34fd018fe2829f0a5a96a22177085bf5
+
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
