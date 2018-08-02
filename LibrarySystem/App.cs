@@ -11,44 +11,39 @@ namespace LibrarySystem
 
         public static int GetMenuSelection()
         {
-            do
-            {
-                Console.Write("Enter menu number: ");
-                var userInput = Console.ReadLine();
-                try
-                {
-                    int userInputAsInt = int.Parse(userInput);
-                    switch (userInputAsInt)
-                    {
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                            return userInputAsInt;
-                        default:
-                            Console.WriteLine("The selection have made isn't on the menu list");
-                            break;
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Please enter a valid Menu Selection");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"{ex.GetType()} says {ex.Message}");
-                }
 
-                return GetMenuSelection();
-                if (!ContinueProgram())
+            Console.Write("Enter menu number: ");
+            var userInput = Console.ReadLine();
+            try
+            {
+                var userInputAsInt = int.Parse(userInput);
+                switch (userInputAsInt)
                 {
-                    break;
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        return userInputAsInt;
+                    default:
+                        Console.WriteLine("The selection have made isn't on the menu list");
+                        break;
                 }
-            } while (true);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Please enter a valid Menu Selection");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{ex.GetType()} says {ex.Message}");
+            }
+
+            return GetMenuSelection();
+
         }
 
-        public static bool ContinueProgram()
+        private static bool ContinueProgram()
         {
             do
             {
