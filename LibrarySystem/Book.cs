@@ -45,22 +45,22 @@ namespace LibrarySystem
         }
         public void SetDueDate()
         {
-            throw new NotImplementedException();
-            //return _dueDate = DateTime.Now + 14; DateTime.ToShortString()
+            _dueDate = DateTime.Now.AddDays(14);
         }
 
         //Check Out
-        public static void checkOut(bool _checkedOut)
+        public void checkOut(bool _checkedOut)
         {
+            SetDueDate();
             _checkedOut = true;            
         }
 
         //Check In
-        public static void checkIn(bool _checkedOut)
+        public void checkIn(bool _checkedOut)
         {
             DateTime? _dueDate = null;
             _checkedOut = false;
         }
-
+        //Refactor Checked out status based on the DueDate value
     }
 }
