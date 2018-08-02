@@ -10,6 +10,9 @@ namespace LibrarySystem
     {
         static void Main(string[] args)
         {
+            App.ShowMenu();
+            App.GetMenuSelection();
+            Console.ReadLine();
         }
     }
 }

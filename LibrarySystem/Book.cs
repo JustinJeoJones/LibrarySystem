@@ -46,7 +46,7 @@ namespace LibrarySystem
         public void SetDueDate()
         {
             throw new NotImplementedException();
-            //return _dueDate = DateTime.Now + 14;
+            //return _dueDate = DateTime.Now + 14; DateTime.ToShortString()
         }
 
         //Check Out
