@@ -13,6 +13,7 @@ namespace LibrarySystem
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Library System!");
             var libraryCatalog = new Catalog();
             var lionWitchWadrobe1 = new Book("The Lion, the Witch, and the ", "C.S. Lewis", 1, false);
             var lionWitchWadrobe2 = new Book("The Lion, the Witch, and ", "C.S. Lewis", 2, false);
