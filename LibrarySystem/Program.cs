@@ -12,6 +12,7 @@ namespace LibrarySystem
         {
             App.ShowMenu();
             App.GetMenuSelection();
+            App.PrintTable();
             Console.ReadLine();
         }
     }

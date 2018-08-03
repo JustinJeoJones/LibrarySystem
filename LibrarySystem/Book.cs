@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibrarySystem
 {
-    class Book
+    public class Book
     {
         //declarations for ctor
         private string _title { get; set; }
@@ -17,7 +17,7 @@ namespace LibrarySystem
         private DateTime? _dueDate { get; set; }
 
         //ctor for book
-        private Book(string title, string author, int bookId, bool checkedOut)
+        public Book(string title, string author, int bookId, bool checkedOut)
         {
             _title = title;
             _author = author;
@@ -35,11 +35,11 @@ namespace LibrarySystem
         {
             return _author;
         }
-        public int GetbookId()
+        public int GetBookId()
         {
             return _bookId;
         }
-        public bool GetcheckedOut()
+        public bool GetCheckedOut()
         {
             return _checkedOut;
         }

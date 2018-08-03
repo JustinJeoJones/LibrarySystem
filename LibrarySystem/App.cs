@@ -43,7 +43,12 @@ namespace LibrarySystem
 
         }
 
-        private static bool ContinueProgram()
+        public static void PrintTable()
+        {
+            Console.WriteLine("SerialNo.\tTitle\tAuthor\tOnShelf");
+        }
+
+    private static bool ContinueProgram()
         {
             do
             {
