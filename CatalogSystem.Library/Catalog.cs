@@ -11,10 +11,13 @@ namespace CatalogSystem.Library
             libraryCatalog = new List<Book>();
         }
         public List<Book> libraryCatalog { get; set; }
-        public void PopulateBooksToLibraryCatalog()
+
+        public void LoadLibrary()
         {
             throw new NotImplementedException();
         }
+
+
         public void ListBooksInLibraryCatalog()
         {
             foreach (Book book in libraryCatalog)
@@ -62,7 +65,7 @@ namespace CatalogSystem.Library
             }
         }
 
-        public void SaveLibraryCatalogToFIle()
+        public void SaveLibrary()
         {
             throw new NotImplementedException();
         }

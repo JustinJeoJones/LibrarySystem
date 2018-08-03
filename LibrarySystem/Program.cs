@@ -1,9 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CatalogSystem.Library;
+using Stream = CatalogSystem.Library.Stream;
 
 namespace LibrarySystem
 {
@@ -44,7 +46,8 @@ namespace LibrarySystem
                 libraryCatalog.ListBooksInLibraryCatalog();
             }
 
-            
+            Stream.StreamExists(libraryCatalog);
+            Console.WriteLine();
             Console.ReadLine();
         }
     }
