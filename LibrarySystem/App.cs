@@ -8,7 +8,8 @@ namespace LibrarySystem
         public static void ShowMenu() =>
             Console.WriteLine(
                 "\n1-List catalog.\n2-Search by author\n3-Search by Title Keyword\n4-Return a Book\n5-Quit");
-
+        public static string formatOutput = "{0, -15} {1, -40} {2, -20} {3, -20}";
+        public static string longLine = "==========================================================================================";
         public static int GetMenuSelection()
         {
 
@@ -45,10 +46,13 @@ namespace LibrarySystem
 
         public static void PrintTable()
         {
-            Console.WriteLine("SerialNo.\tTitle\tAuthor\tOnShelf");
+            Console.WriteLine(longLine);
+            Console.WriteLine(formatOutput, " SerialNo.", "Title", "Author", "OnShelf");
+            Console.WriteLine(longLine);
+            
         }
 
-    private static bool ContinueProgram()
+        private static bool ContinueProgram()
         {
             do
             {
