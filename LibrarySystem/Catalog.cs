@@ -5,6 +5,10 @@ namespace LibrarySystem
 {
     public class Catalog
     {
+        public Catalog()
+        {
+            libraryCatalog = new List<Book>();
+        }
         public List<Book> libraryCatalog { get; set; }
         public void AddBooksToLibraryCatalog()
         {
