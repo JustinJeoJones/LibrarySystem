@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CatalogSystem.Library
 {
@@ -33,15 +34,10 @@ namespace CatalogSystem.Library
             }
         }
 
-        public void SearchLibraryCatalogByKeyword(string keyword)
+        public List<Book> SearchLibraryCatalogByKeyword(string keyword)
         {
-            foreach (Book book in libraryCatalog)
-            {
-                if (book.GetTitle().Contains(keyword))
-                {
-                    Console.WriteLine($"{book.GetBookId()}\t{book.GetTitle()}\t{book.GetAuthor()}\t{book.GetCheckedOut()}");
-                }
-            }
+            var matches = libraryCatalog.Where(book => book.GetTitle().Contains(keyword));
+            return matches.ToList();
         }
 
         public void SearchLibraryCatalogByAuthor(string author)
