@@ -8,7 +8,7 @@ namespace LibrarySystem
         public List<Book> libraryCatalog { get; set; }
         public void AddBooksToLibraryCatalog()
         {
-
+            throw new NotImplementedException();
         }
         public void ListBooksInLibraryCatalog()
         {
@@ -53,7 +53,7 @@ namespace LibrarySystem
 
         public void SaveLibraryCatalogToFIle()
         {
-
+            throw new NotImplementedException();
         }
 
     }
