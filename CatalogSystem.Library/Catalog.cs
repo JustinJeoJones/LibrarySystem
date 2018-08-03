@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LibrarySystem
+namespace CatalogSystem.Library
 {
     public class Catalog
     {
@@ -27,6 +27,17 @@ namespace LibrarySystem
             foreach (Book book in libraryCatalog)
             {
                 if (book.GetTitle() == title)
+                {
+                    Console.WriteLine($"{book.GetBookId()}\t{book.GetTitle()}\t{book.GetAuthor()}\t{book.GetCheckedOut()}");
+                }
+            }
+        }
+
+        public void SearchLibraryCatalogByKeyword(string keyword)
+        {
+            foreach (Book book in libraryCatalog)
+            {
+                if (book.GetTitle().Contains(keyword))
                 {
                     Console.WriteLine($"{book.GetBookId()}\t{book.GetTitle()}\t{book.GetAuthor()}\t{book.GetCheckedOut()}");
                 }
