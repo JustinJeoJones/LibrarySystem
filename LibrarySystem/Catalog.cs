@@ -10,7 +10,7 @@ namespace LibrarySystem
             libraryCatalog = new List<Book>();
         }
         public List<Book> libraryCatalog { get; set; }
-        public void AddBooksToLibraryCatalog()
+        public void PopulateBooksToLibraryCatalog()
         {
             throw new NotImplementedException();
         }
