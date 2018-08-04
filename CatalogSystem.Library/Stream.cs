@@ -7,7 +7,8 @@ namespace CatalogSystem.Library
     {
         private static Stream instance = new Stream();
 
-        public static string path = $"{Directory.GetCurrentDirectory()}\\catalog.txt";
+        public static string path = $"{Directory.GetCurrentDirectory()}\\catalog.csv";
+
         public static bool FileExists()
         {
             return File.Exists(path);
