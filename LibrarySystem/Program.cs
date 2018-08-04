@@ -47,8 +47,9 @@ namespace LibrarySystem
                 libraryCatalog.ListBooksInLibraryCatalog();
             }
 
-            //Stream.StreamExists(libraryCatalog);
+            Stream.ReadCatalogFile();
             Console.WriteLine();
+
             Console.ReadLine();
         }
     }

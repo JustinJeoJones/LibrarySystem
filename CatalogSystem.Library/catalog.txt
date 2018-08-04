@@ -1,0 +1,23 @@
+1, Moby Dick, Herman Melville
+
+2, War and Peace, Leo Tolstoy
+
+3, The Brothers Karamoazov, Fyodor Dostoyevsky
+
+4, The Lion, the Witch and the Wardrobe, C.S. Lewis
+
+5, Wuthering Heights, Emily Brontë
+
+6,  The Children of Húrin , J.R.R. Tolken
+
+7, Go the F**k to Sleep, Adam Mansbach
+
+8, Les Misérables, Victor Hugo
+
+9, The Lorax, Dr. Seuss
+
+10, 1984, George Orwell
+
+11, One Flew over the Cuckoo’s nest, Ken Kesey
+
+12, Slaughterhouse-Five, Kurt Vonnegut

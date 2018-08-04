@@ -7,7 +7,7 @@ namespace CatalogSystem.Library
     {
         private static Stream instance = new Stream();
 
-        public static string path = Directory.GetCurrentDirectory() + "Catalog.txt";
+        public static string path = $"{Directory.GetCurrentDirectory()}\\catalog.txt";
         public static bool FileExists()
         {
             return File.Exists(path);
@@ -28,9 +28,13 @@ namespace CatalogSystem.Library
                     Console.WriteLine();
                     while (!reader.EndOfStream)
                     {
-                        //new Book();
+                        Console.WriteLine($"{reader.ReadLine()}");
                     }
                 }
+            }
+            else
+            {
+                Console.WriteLine("File does not exists");
             }
         }
     }
