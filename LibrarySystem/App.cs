@@ -47,7 +47,7 @@ namespace LibrarySystem
         public static void PrintTable()
         {
             Console.WriteLine(longLine);
-            Console.WriteLine(formatOutput, " SerialNo.", "Title", "Author", "OnShelf");
+            Console.WriteLine(formatOutput, " SerialNo.", "Title", "Author", "Checked Out");
             Console.WriteLine(longLine);
             
         }
