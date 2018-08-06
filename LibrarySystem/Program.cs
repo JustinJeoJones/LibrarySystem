@@ -13,7 +13,7 @@ namespace LibrarySystem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Library System!");
+            Console.WriteLine($"{App.shortLine}\n///////// Welcome to Library System! /////////\n{App.shortLine}");
             var libraryCatalog = new Catalog();
             int counter = libraryCatalog.libraryCatalog.Count;
             Stream.ReadCatalogFile(libraryCatalog, ref counter);
