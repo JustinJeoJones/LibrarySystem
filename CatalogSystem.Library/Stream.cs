@@ -23,12 +23,12 @@ namespace CatalogSystem.Library
 
         public static void ReadCatalogFile(Catalog libraryCatalog, ref int counter)
         {
-            
+
             if (FileExists())
             {
                 using (TextFieldParser csvParser = new TextFieldParser(path))
                 {
-                    csvParser.SetDelimiters(new string[] { "," });
+                    csvParser.SetDelimiters(new string[] {","});
                     csvParser.HasFieldsEnclosedInQuotes = true;
 
                     while (!csvParser.EndOfData)
@@ -49,7 +49,7 @@ namespace CatalogSystem.Library
                             dueDate = null;
                         }
 
-                        bool checkedOut = bool.Parse(fields[3]);
+                        bool checkedOut = bool.Parse(fields[3].ToLower());
 
                         counter++;
                         if (dueDate != null)
@@ -72,11 +72,27 @@ namespace CatalogSystem.Library
             }
         }
 
-        public void WriteCatalogToFile(Catalog libraryCatalog)
+        public static void WriteCatalogToFile(Catalog libraryCatalog)
         {
+            if (FileExists())
+            {
+                using (StreamWriter writer = new StreamWriter(path))
+                {
+                    foreach (var book in libraryCatalog.libraryCatalog)
+                    {
+                        var bookId = book.GetBookId();
+                        var title = book.GetTitle();
+                        var author = book.GetAuthor();
+                        var checkedOut = book.GetCheckedOut();
+                        var dueDate = book.GetDueDate();
 
+                        writer.WriteLine($"{bookId},\"{title}\",{author},{checkedOut},{dueDate}");
+
+                        writer.Flush();
+
+                    }
+                }
+            }
         }
-
-      
     }
 }

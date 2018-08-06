@@ -45,6 +45,7 @@ namespace LibrarySystem
 
                 if (selection == 5)
                 {
+                    Stream.WriteCatalogToFile(libraryCatalog);
                     break;
                 }
             } while (true);
