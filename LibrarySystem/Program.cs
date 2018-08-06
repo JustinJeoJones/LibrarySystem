@@ -32,14 +32,14 @@ namespace LibrarySystem
                 {
                     libraryCatalog.ListBooksInLibraryCatalog();
                     //Add validation for this
-                    int bookId;
+                    int userBookIdNum;
                     do
                     {
                         Console.WriteLine("Select the serial id of the book you want to checkout");
-                        bookId = int.Parse(Console.ReadLine());
-                    } while (!Validator.IsValidId(libraryCatalog.libraryCatalog, bookId));
+                        userBookIdNum = libraryCatalog.GetUserBookIdSelect(Console.ReadLine());
+                    } while (!Validator.IsValidId(libraryCatalog.libraryCatalog, userBookIdNum));
 
-                    libraryCatalog.libraryCatalog[bookId - 1].CheckOut(bookId);
+                    libraryCatalog.libraryCatalog[userBookIdNum - 1].CheckOut(userBookIdNum);
 
                 }
 
