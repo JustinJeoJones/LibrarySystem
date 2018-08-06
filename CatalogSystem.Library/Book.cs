@@ -9,14 +9,14 @@ namespace CatalogSystem.Library
 {
     public class Book
     {
-        //declarations for ctor
+        //Object Properties
         private string _title { get; set; }
         private string _author { get; set; }
         private int _bookId { get; set; }
         private bool _checkedOut { get; set; }
         private DateTime? _dueDate { get; set; }
 
-        //ctor for book
+        //First Constructor method that doesn't take a dateTime for the dueDate setting it to null
         public Book(string title, string author, int bookId, bool checkedOut)
         {
             _title = title;
@@ -25,6 +25,8 @@ namespace CatalogSystem.Library
             _checkedOut = checkedOut;
             _dueDate = null;
         }
+
+        //Second Constructor method that sets the dueDate of the book to the timestamp in the file
         public Book(string title, string author, int bookId, bool checkedOut, DateTime? dueDate)
         {
             _title = title;
@@ -34,9 +36,7 @@ namespace CatalogSystem.Library
             _dueDate = dueDate;
         }
 
-
-
-        //methods for grabbing categories
+        //Get Methods that return the values as public entities
         public string GetTitle()
         {
             return _title;
@@ -53,28 +53,28 @@ namespace CatalogSystem.Library
         {
             return _checkedOut;
         }
-
         public string GetDueDate()
         {
             return _dueDate.ToString();
         }
+
+        //Set method to declare the duedate of the book if one exists on instantiation
         public void SetDueDate()
         {
             _dueDate = DateTime.Now.AddDays(14);
         }
 
-        //Check Out
+        //Method to set the due date and set the book to checked out
         public void CheckOut(int bookId)
         {
             if (bookId == _bookId)
             {
                 SetDueDate();
                 _checkedOut = true;
-            }
-                        
+            }       
         }
 
-        //Check In
+        //Method to remove due date once the checkedout status is set to false.
         public void CheckIn(int bookId)
         {
             if (bookId == _bookId)
@@ -83,6 +83,6 @@ namespace CatalogSystem.Library
                 _checkedOut = false;
             }
         }
-        //Refactor Checked out status based on the DueDate value
+        
     }
 }

@@ -6,19 +6,22 @@ namespace CatalogSystem.Library
 {
     public class Catalog
     {
-        public static string FormatOutput = "{0, -15} {1, -40} {2, -20} {3, -20} {4, -20}";
+        
+
         public Catalog()
         {
             libraryCatalog = new List<Book>();
         }
 
         public List<Book> libraryCatalog { get; set; }
+
         public static string longLine = "==========================================================================================================================";
+        public static string FormatOutput = "{0, -15} {1, -40} {2, -20} {3, -20} {4, -20}";
 
-
+        //Get the generic list of books from the Catalog class and print out the books to the console
         public void ListBooksInLibraryCatalog()
         {
-            
+            //iterate through the list and determine whether or not it's on the shelf
             foreach (Book book in libraryCatalog)
             {
                 string onShelf;
@@ -31,12 +34,14 @@ namespace CatalogSystem.Library
                 {
                     onShelf = "On Shelf";
                 }
-                
+                //Write the book information onto the console.
                 Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf, book.GetDueDate());
             }
             Console.WriteLine(longLine);
         }
 
+        //Currently unipmlemented but this function is a "SEARCH BY EXACT TITLE"
+        //sort of method that only prints out books to the console that match the search term exactly
         public void SearchLibraryCatalogByTitle(string title)
         {
             foreach (Book book in libraryCatalog)
@@ -60,6 +65,8 @@ namespace CatalogSystem.Library
             Console.WriteLine(longLine);
         }
 
+        //This method prints out all books in the
+        //generic list of books that contain the keyword specified in their title
         public void SearchLibraryCatalogByKeyword(string keyword)
         {
              foreach (Book book in libraryCatalog)
@@ -83,6 +90,7 @@ namespace CatalogSystem.Library
             Console.WriteLine(longLine);
         }
 
+        //Method to search for the author keyword within the author property on the book instance
         public void SearchLibraryCatalogByAuthor(string author)
         {
             foreach (Book book in libraryCatalog)
@@ -106,6 +114,7 @@ namespace CatalogSystem.Library
             Console.WriteLine(longLine);
         }
 
+        //Also currently unutilized but this method prints out the books by their checked out property
         public void SearchLibraryCatalogByCheckedOut(bool checkout)
         {
             foreach (Book book in libraryCatalog)
@@ -128,23 +137,26 @@ namespace CatalogSystem.Library
             }
             Console.WriteLine(longLine);
         }
-        
+
+        //This method ensures that the user input for book selection exists on the catalog file, also accounting for null or whitespace
         public int GetUserBookIdSelect(string userBookIdSelect)
         {
             if (!string.IsNullOrWhiteSpace(userBookIdSelect))
             {
-                int userBookIdNum;
-                bool num1 = int.TryParse(userBookIdSelect, out userBookIdNum);
-                if (userBookIdNum > 0 && userBookIdNum <= libraryCatalog.Count)
+                if (int.TryParse(userBookIdSelect, out var userBookIdNum))
                 {
-                    //make CSV please!
-                    return userBookIdNum;
+                    if (userBookIdNum > 0 && userBookIdNum <= libraryCatalog.Count)
+                    {
+                        return userBookIdNum;
+                    }
                 }
             }
             return 0;
         }
 
 
+
+        //Unutilized AddBook Method
 
 
         //public void AddBookToCatalog()
