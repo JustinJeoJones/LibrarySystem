@@ -61,6 +61,24 @@ namespace CatalogSystem.Library
                 }
             }
         }
+        
+        public int? GetUserBookIdSelect(string userBookIdSelect)
+        {
+            if (!string.IsNullOrWhiteSpace(userBookIdSelect))
+            {
+                int userBookIdNum;
+                bool num1 = int.TryParse(userBookIdSelect, out userBookIdNum);
+                if (userBookIdNum > 0 && userBookIdNum > libraryCatalog.Count)
+                {
+                    return userBookIdNum;
+                }
+            }
+            return null;
+        }
+
+
+
+
         //public void AddBookToCatalog()
         //{
         //    string newBookTitle;
