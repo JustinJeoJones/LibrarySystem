@@ -86,7 +86,7 @@ namespace CatalogSystem.Library
                         var checkedOut = book.GetCheckedOut();
                         var dueDate = book.GetDueDate();
 
-                        writer.WriteLine($"{bookId},{title},{author},{checkedOut},{dueDate}");
+                        writer.WriteLine($"{bookId},\"{title}\",{author},{checkedOut},{dueDate}");
 
                         writer.Flush();
 
