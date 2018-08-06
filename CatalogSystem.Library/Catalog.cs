@@ -6,13 +6,14 @@ namespace CatalogSystem.Library
 {
     public class Catalog
     {
-        public static string FormatOutput = "{0, -15} {1, -40} {2, -20} {3, -20}";
+        public static string FormatOutput = "{0, -15} {1, -40} {2, -20} {3, -20} {4, -20}";
         public Catalog()
         {
             libraryCatalog = new List<Book>();
         }
 
         public List<Book> libraryCatalog { get; set; }
+        public static string longLine = "==========================================================================================================================";
 
 
         public void ListBooksInLibraryCatalog()
@@ -31,8 +32,9 @@ namespace CatalogSystem.Library
                     onShelf = "On Shelf";
                 }
                 
-                Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf);
+                Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf, book.GetDueDate());
             }
+            Console.WriteLine(longLine);
         }
 
         public void SearchLibraryCatalogByTitle(string title)
@@ -55,6 +57,7 @@ namespace CatalogSystem.Library
                     Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf);
                 }
             }
+            Console.WriteLine(longLine);
         }
 
         public void SearchLibraryCatalogByKeyword(string keyword)
@@ -74,9 +77,10 @@ namespace CatalogSystem.Library
                         onShelf = "On Shelf";
                     }
 
-                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf);
+                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf, book.GetDueDate());
                 }
             }
+            Console.WriteLine(longLine);
         }
 
         public void SearchLibraryCatalogByAuthor(string author)
@@ -96,9 +100,10 @@ namespace CatalogSystem.Library
                         onShelf = "On Shelf";
                     }
 
-                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf);
+                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf, book.GetDueDate());
                 }
             }
+            Console.WriteLine(longLine);
         }
 
         public void SearchLibraryCatalogByCheckedOut(bool checkout)
@@ -118,9 +123,10 @@ namespace CatalogSystem.Library
                         onShelf = "On Shelf";
                     }
 
-                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf);
+                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf, book.GetDueDate());
                 }
             }
+            Console.WriteLine(longLine);
         }
         
         public int GetUserBookIdSelect(string userBookIdSelect)
