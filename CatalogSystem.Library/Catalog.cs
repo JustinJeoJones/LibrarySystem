@@ -17,6 +17,7 @@ namespace CatalogSystem.Library
 
         public void ListBooksInLibraryCatalog()
         {
+            
             foreach (Book book in libraryCatalog)
             {
                 string onShelf;
@@ -56,17 +57,33 @@ namespace CatalogSystem.Library
             }
         }
 
-        public List<Book> SearchLibraryCatalogByKeyword(string keyword)
+        public void SearchLibraryCatalogByKeyword(string keyword)
         {
-            var matches = libraryCatalog.Where(book => book.GetTitle().Contains(keyword));
-            return matches.ToList();
+             foreach (Book book in libraryCatalog)
+            {
+                if (book.GetTitle().Contains(keyword))
+                {
+                    string onShelf;
+
+                    if (book.GetCheckedOut())
+                    {
+                        onShelf = "Checked Out";
+                    }
+                    else
+                    {
+                        onShelf = "On Shelf";
+                    }
+
+                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf);
+                }
+            }
         }
 
         public void SearchLibraryCatalogByAuthor(string author)
         {
             foreach (Book book in libraryCatalog)
             {
-                if (book.GetAuthor() == author)
+                if (book.GetAuthor().Contains(author))
                 {
                     string onShelf;
 

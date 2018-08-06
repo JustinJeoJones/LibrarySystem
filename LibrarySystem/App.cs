@@ -67,5 +67,21 @@ namespace LibrarySystem
                 return input == "y";
             } while (true);
         }
+
+        public static string GetSearchQuery()
+        {
+            string searchTerm;
+            do
+            {
+                Console.WriteLine("Enter a search term: ");
+                searchTerm = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(searchTerm))
+                {
+                    Console.WriteLine("please enter a valid search term");
+                }
+            } while (string.IsNullOrWhiteSpace(searchTerm));
+
+            return searchTerm;
+        }
     }
 }

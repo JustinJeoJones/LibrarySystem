@@ -28,6 +28,20 @@ namespace LibrarySystem
                     libraryCatalog.ListBooksInLibraryCatalog();
                 }
 
+                if (selection == 2)
+                {
+                    var query = App.GetSearchQuery();
+                    App.PrintTable();
+                    libraryCatalog.SearchLibraryCatalogByAuthor(query);
+                }
+
+                if (selection == 3)
+                {
+                    var query = App.GetSearchQuery();
+                    App.PrintTable();
+                    libraryCatalog.SearchLibraryCatalogByKeyword(query);
+                }
+
                 if (selection == 4)
                 {
                     bool actionComplete = false;
