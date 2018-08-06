@@ -15,7 +15,9 @@ namespace LibrarySystem
         {
             Console.WriteLine("Welcome to Library System!");
             var libraryCatalog = new Catalog();
-            Stream.ReadCatalogFile(libraryCatalog);
+            int counter = libraryCatalog.libraryCatalog.Count;
+            Stream.ReadCatalogFile(libraryCatalog, ref counter);
+
             do
             {
                 App.ShowMenu();
@@ -30,9 +32,14 @@ namespace LibrarySystem
                 {
                     libraryCatalog.ListBooksInLibraryCatalog();
                     //Add validation for this
-                    Console.WriteLine("Select the serial id of the book you want to checkout");
-                    var bookId = int.Parse(Console.ReadLine());
-                    libraryCatalog.libraryCatalog[bookId - 1].checkOut(bookId);
+                    int bookId;
+                    do
+                    {
+                        Console.WriteLine("Select the serial id of the book you want to checkout");
+                        bookId = int.Parse(Console.ReadLine());
+                    } while (!Validator.IsValidId(libraryCatalog.libraryCatalog, bookId));
+
+                    libraryCatalog.libraryCatalog[bookId - 1].CheckOut(bookId);
 
                 }
 

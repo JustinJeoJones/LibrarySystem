@@ -61,11 +61,22 @@ namespace CatalogSystem.Library
                 }
             }
         }
+        //public void AddBookToCatalog()
+        //{
+        //    string newBookTitle;
+        //    string newBookAuthor;
+        //    do
+        //    {
+        //        Console.WriteLine("Please enter the title of the book to be added");
+        //        newBookTitle = Console.ReadLine();
+        //    } while (string.IsNullOrWhiteSpace(newBookTitle));
 
-        public void SaveLibrary()
-        {
-            throw new NotImplementedException();
-        }
+        //    do
+        //    {
+        //        Console.WriteLine("Please enter the author of that book");
+        //        newBookAuthor = Console.ReadLine();
+        //    } while (string.IsNullOrWhiteSpace(newBookAuthor));
+        //}
 
     }
 }

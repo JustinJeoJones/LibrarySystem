@@ -21,9 +21,9 @@ namespace CatalogSystem.Library
             return Instance;
         }
 
-        public static void ReadCatalogFile(Catalog libraryCatalog)
+        public static void ReadCatalogFile(Catalog libraryCatalog, ref int counter)
         {
-            int counter = 0;
+            
             if (FileExists())
             {
                 using (TextFieldParser csvParser = new TextFieldParser(path))
@@ -48,7 +48,7 @@ namespace CatalogSystem.Library
                         {
                             dueDate = null;
                         }
-                        
+
                         bool checkedOut = bool.Parse(fields[3]);
 
                         counter++;
@@ -60,16 +60,23 @@ namespace CatalogSystem.Library
                         {
                             book = new Book(title, author, counter, checkedOut);
                         }
-                        
-                        
+
+
                         libraryCatalog.libraryCatalog.Add(book);
                     }
                 }
-              }
+            }
             else
             {
                 Console.WriteLine("File does not exist");
             }
         }
+
+        public void WriteCatalogToFile(Catalog libraryCatalog)
+        {
+
+        }
+
+      
     }
 }
