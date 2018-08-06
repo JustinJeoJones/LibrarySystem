@@ -7,7 +7,7 @@ namespace CatalogSystem.Library
 {
     public sealed class Stream
     {
-        private static Stream instance = new Stream();
+        private static Stream Instance = new Stream();
 
         public static string path = $"{Directory.GetCurrentDirectory()}\\catalog.csv";
 
@@ -16,9 +16,9 @@ namespace CatalogSystem.Library
             return File.Exists(path);
         }
 
-        public static Stream getInstance()
+        public static Stream GetInstance()
         {
-            return instance;
+            return Instance;
         }
 
         public static void ReadCatalogFile(Catalog libraryCatalog)
@@ -68,7 +68,7 @@ namespace CatalogSystem.Library
               }
             else
             {
-                Console.WriteLine("File does not exists");
+                Console.WriteLine("File does not exist");
             }
         }
     }

@@ -6,7 +6,7 @@ namespace CatalogSystem.Library
 {
     public class Catalog
     {
-        public static string formatOutput = "{0, -15} {1, -40} {2, -20} {3, -20}";
+        public static string FormatOutput = "{0, -15} {1, -40} {2, -20} {3, -20}";
         public Catalog()
         {
             libraryCatalog = new List<Book>();
@@ -19,7 +19,7 @@ namespace CatalogSystem.Library
         {
             foreach (Book book in libraryCatalog)
             {
-                Console.WriteLine(formatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
+                Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
             }
         }
 
@@ -29,7 +29,7 @@ namespace CatalogSystem.Library
             {
                 if (book.GetTitle() == title)
                 {
-                    Console.WriteLine(formatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
+                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace CatalogSystem.Library
             {
                 if (book.GetAuthor() == author)
                 {
-                    Console.WriteLine(formatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
+                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
                 }
             }
         }
@@ -57,7 +57,7 @@ namespace CatalogSystem.Library
             {
                 if (book.GetCheckedOut() == checkout)
                 {
-                    Console.WriteLine(formatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
+                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
                 }
             }
         }

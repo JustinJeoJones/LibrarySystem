@@ -59,7 +59,7 @@ namespace CatalogSystem.Library
         }
 
         //Check Out
-        public void checkOut(int bookId)
+        public void CheckOut(int bookId)
         {
             if (bookId == _bookId)
             {
@@ -70,7 +70,7 @@ namespace CatalogSystem.Library
         }
 
         //Check In
-        public void checkIn(int bookId)
+        public void CheckIn(int bookId)
         {
             if (bookId == _bookId)
             {
