@@ -19,7 +19,18 @@ namespace CatalogSystem.Library
         {
             foreach (Book book in libraryCatalog)
             {
-                Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
+                string onShelf;
+
+                if (book.GetCheckedOut())
+                {
+                    onShelf = "Checked Out";
+                }
+                else
+                {
+                    onShelf = "On Shelf";
+                }
+                
+                Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf);
             }
         }
 
@@ -29,7 +40,18 @@ namespace CatalogSystem.Library
             {
                 if (book.GetTitle() == title)
                 {
-                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
+                    string onShelf;
+
+                    if (book.GetCheckedOut())
+                    {
+                        onShelf = "Checked Out";
+                    }
+                    else
+                    {
+                        onShelf = "On Shelf";
+                    }
+
+                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf);
                 }
             }
         }
@@ -46,7 +68,18 @@ namespace CatalogSystem.Library
             {
                 if (book.GetAuthor() == author)
                 {
-                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
+                    string onShelf;
+
+                    if (book.GetCheckedOut())
+                    {
+                        onShelf = "Checked Out";
+                    }
+                    else
+                    {
+                        onShelf = "On Shelf";
+                    }
+
+                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf);
                 }
             }
         }
@@ -57,7 +90,18 @@ namespace CatalogSystem.Library
             {
                 if (book.GetCheckedOut() == checkout)
                 {
-                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), book.GetCheckedOut());
+                    string onShelf;
+
+                    if (book.GetCheckedOut())
+                    {
+                        onShelf = "Checked Out";
+                    }
+                    else
+                    {
+                        onShelf = "On Shelf";
+                    }
+
+                    Console.WriteLine(FormatOutput, book.GetBookId(), book.GetTitle(), book.GetAuthor(), onShelf);
                 }
             }
         }

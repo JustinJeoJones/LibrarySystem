@@ -30,16 +30,48 @@ namespace LibrarySystem
 
                 if (selection == 4)
                 {
-                    libraryCatalog.ListBooksInLibraryCatalog();
-                    //Add validation for this
-                    int userBookIdNum;
+                    bool actionComplete = false;
                     do
                     {
-                        Console.WriteLine("Select the serial id of the book you want to checkout");
-                        userBookIdNum = libraryCatalog.GetUserBookIdSelect(Console.ReadLine());
-                    } while (!Validator.IsValidId(libraryCatalog.libraryCatalog, userBookIdNum));
+                       Console.WriteLine("Would you like to Checkout or Return a Book: (checkout/return)");
+                        var action = Console.ReadLine().ToLower();
+                        switch (action)
+                        {
+                            case "checkout":
+                            {
+                                libraryCatalog.ListBooksInLibraryCatalog();
 
-                    libraryCatalog.libraryCatalog[userBookIdNum - 1].CheckOut(userBookIdNum);
+                                int userBookIdNum;
+                                do
+                                {
+                                    Console.WriteLine("Select the serial ID of the book you want to Checkout");
+                                    userBookIdNum = libraryCatalog.GetUserBookIdSelect(Console.ReadLine());
+                                } while (!Validator.IsValidId(libraryCatalog.libraryCatalog, userBookIdNum));
+
+                                libraryCatalog.libraryCatalog[userBookIdNum - 1].CheckOut(userBookIdNum);
+
+                            }
+                                actionComplete = true;
+                                break;
+                            case "return":
+                            {
+                                libraryCatalog.ListBooksInLibraryCatalog();
+
+                                int userBookIdNum;
+                                do
+                                {
+                                    Console.WriteLine("Select the serial ID of the book you want to Return");
+                                    userBookIdNum = libraryCatalog.GetUserBookIdSelect(Console.ReadLine());
+                                } while (!Validator.IsValidId(libraryCatalog.libraryCatalog, userBookIdNum));
+
+                                libraryCatalog.libraryCatalog[userBookIdNum - 1].CheckIn(userBookIdNum);
+
+                            }
+                                actionComplete = true;
+                                break;
+                        }
+                    } while (!actionComplete);
+
 
                 }
 

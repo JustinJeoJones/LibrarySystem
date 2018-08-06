@@ -7,7 +7,7 @@ namespace LibrarySystem
     {
         public static void ShowMenu() =>
             Console.WriteLine(
-                "\n1-List catalog.\n2-Search by author\n3-Search by Title Keyword\n4-Return a Book\n5-Quit");
+                "\n1-List catalog.\n2-Search by author\n3-Search by Title Keyword\n4-Checkout/Return a Book\n5-Quit");
         public static string formatOutput = "{0, -15} {1, -40} {2, -20} {3, -20}";
         public static string longLine = "==========================================================================================";
         public static int GetMenuSelection()
