@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-
+using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.FileIO;
 
 namespace CatalogSystem.Library
@@ -33,6 +33,8 @@ namespace CatalogSystem.Library
 
                     while (!csvParser.EndOfData)
                     {
+                        Book book;
+                        DateTime? dueDate;
                         // Read current line fields, pointer moves to the next line.
                         string[] fields = csvParser.ReadFields();
                         int id = int.Parse(fields[0]);
@@ -40,17 +42,25 @@ namespace CatalogSystem.Library
                         string author = fields[2];
                         try
                         {
-                            DateTime dueDate = DateTime.Parse(fields[4]);
+                            dueDate = DateTime.Parse(fields[4]);
                         }
                         catch (FormatException)
                         {
-                            DateTime? dueDate = null;
+                            dueDate = null;
                         }
                         
                         bool checkedOut = bool.Parse(fields[3]);
 
                         counter++;
-                        var book = new Book(title, author, counter, checkedOut);
+                        if (dueDate != null)
+                        {
+                            book = new Book(title, author, counter, checkedOut, dueDate);
+                        }
+                        else
+                        {
+                            book = new Book(title, author, counter, checkedOut);
+                        }
+                        
                         
                         libraryCatalog.libraryCatalog.Add(book);
                     }

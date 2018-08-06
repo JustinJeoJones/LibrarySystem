@@ -25,6 +25,16 @@ namespace CatalogSystem.Library
             _checkedOut = checkedOut;
             _dueDate = null;
         }
+        public Book(string title, string author, int bookId, bool checkedOut, DateTime? dueDate)
+        {
+            _title = title;
+            _author = author;
+            _bookId = bookId;
+            _checkedOut = checkedOut;
+            _dueDate = dueDate;
+        }
+
+
 
         //methods for grabbing categories
         public string GetTitle()
@@ -49,17 +59,24 @@ namespace CatalogSystem.Library
         }
 
         //Check Out
-        public void checkOut(bool _checkedOut)
+        public void checkOut(int bookId)
         {
-            SetDueDate();
-            _checkedOut = true;            
+            if (bookId == _bookId)
+            {
+                SetDueDate();
+                _checkedOut = true;
+            }
+                        
         }
 
         //Check In
-        public void checkIn(bool _checkedOut)
+        public void checkIn(int bookId)
         {
-            DateTime? _dueDate = null;
-            _checkedOut = false;
+            if (bookId == _bookId)
+            {
+                DateTime? _dueDate = null;
+                _checkedOut = false;
+            }
         }
         //Refactor Checked out status based on the DueDate value
     }
