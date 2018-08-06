@@ -9,14 +9,10 @@ namespace CatalogSystem.Library
         public static string formatOutput = "{0, -15} {1, -40} {2, -20} {3, -20}";
         public Catalog()
         {
-            libraryCatalog = new List<Book>(); 
+            libraryCatalog = new List<Book>();
         }
-        public List<Book> libraryCatalog { get; set; }
 
-        public void LoadLibrary()
-        {
-            throw new NotImplementedException();
-        }
+        public List<Book> libraryCatalog { get; set; }
 
 
         public void ListBooksInLibraryCatalog()
