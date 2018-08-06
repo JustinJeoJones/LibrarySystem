@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
+using CatalogSystem.Library;
 
 namespace LibrarySystem
 {
@@ -85,5 +86,85 @@ namespace LibrarySystem
             return searchTerm;
         }
 
+        public static void MenuInputHandler(Catalog libraryCatalog)
+        {
+            do
+            {
+                App.ShowMenu();
+                var selection = App.GetMenuSelection();
+                if (selection == 1)
+                {
+                    App.PrintTable();
+                    libraryCatalog.ListBooksInLibraryCatalog();
+                }
+
+                if (selection == 2)
+                {
+                    var query = App.GetSearchQuery();
+                    App.PrintTable();
+                    libraryCatalog.SearchLibraryCatalogByAuthor(query);
+                }
+
+                if (selection == 3)
+                {
+                    var query = App.GetSearchQuery();
+                    App.PrintTable();
+                    libraryCatalog.SearchLibraryCatalogByKeyword(query);
+                }
+
+                if (selection == 4)
+                {
+                    bool actionComplete = false;
+                    do
+                    {
+                        Console.WriteLine("Would you like to Checkout or Return a Book: (checkout/return)");
+                        var action = Console.ReadLine().ToLower();
+                        switch (action)
+                        {
+                            case "checkout":
+                                {
+                                    libraryCatalog.ListBooksInLibraryCatalog();
+
+                                    int userBookIdNum;
+                                    do
+                                    {
+                                        Console.WriteLine("Select the serial ID of the book you want to Checkout");
+                                        userBookIdNum = libraryCatalog.GetUserBookIdSelect(Console.ReadLine());
+                                    } while (!Validator.IsValidId(libraryCatalog.libraryCatalog, userBookIdNum));
+
+                                    libraryCatalog.libraryCatalog[userBookIdNum - 1].CheckOut(userBookIdNum);
+
+                                }
+                                actionComplete = true;
+                                break;
+                            case "return":
+                                {
+                                    libraryCatalog.ListBooksInLibraryCatalog();
+
+                                    int userBookIdNum;
+                                    do
+                                    {
+                                        Console.WriteLine("Select the serial ID of the book you want to Return");
+                                        userBookIdNum = libraryCatalog.GetUserBookIdSelect(Console.ReadLine());
+                                    } while (!Validator.IsValidId(libraryCatalog.libraryCatalog, userBookIdNum));
+
+                                    libraryCatalog.libraryCatalog[userBookIdNum - 1].CheckIn(userBookIdNum);
+
+                                }
+                                actionComplete = true;
+                                break;
+                        }
+                    } while (!actionComplete);
+
+
+                }
+
+                if (selection == 5)
+                {
+                    Stream.WriteCatalogToFile(libraryCatalog);
+                    break;
+                }
+            } while (true);
+        }
     }
 }

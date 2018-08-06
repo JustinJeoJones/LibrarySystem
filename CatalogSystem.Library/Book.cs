@@ -79,7 +79,7 @@ namespace CatalogSystem.Library
         {
             if (bookId == _bookId)
             {
-                DateTime? _dueDate = null;
+                _dueDate = null;
                 _checkedOut = false;
             }
         }
