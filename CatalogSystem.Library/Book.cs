@@ -53,6 +53,11 @@ namespace CatalogSystem.Library
         {
             return _checkedOut;
         }
+
+        public string GetDueDate()
+        {
+            return _dueDate.ToString();
+        }
         public void SetDueDate()
         {
             _dueDate = DateTime.Now.AddDays(14);
